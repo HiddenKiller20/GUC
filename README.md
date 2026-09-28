@@ -66,3 +66,15 @@ The Discord invite configured in the UI and server is `https://discord.gg/FuspHd
 ## Files that must stay private
 
 Never upload `.env`, the live `data/guc.db` or your setup password to a public repository. Static assets and the website's source code may be published, but the SQLite database and credentials must stay on the private server.
+
+## Deploy to Railway (recommended)
+
+1. Upload this project to GitHub **without** `.env`, `data/*.db`, passwords, private edit codes, or session data.
+2. In Railway, create a service from the GitHub repository and use the `main` branch. Node 22.16+ is required.
+3. **Before accepting members**, attach a persistent volume to the web service and mount it at `/data`. Set `DB_FILE=/data/guc.db` so posts and admin changes survive redeploys.
+4. Set Railway service variables `HOST=0.0.0.0`, `NODE_ENV=production`, `OWNER_EMAIL=bigt1576@gmail.com`, and `DB_FILE=/data/guc.db`. Railway provides `PORT` automatically. Leave `TRUST_PROXY=0` unless you control the proxy and know it overwrites forwarding headers.
+5. Set `SETUP_PASSWORD` to a new private 16+ character owner password **in Railway's service Variables screen, not in GitHub or chat**. On first start, the site initializes the owner account if none exists. Once the account is created on the persistent volume, remove `SETUP_PASSWORD` from Railway Variables. Removing it does not change the existing password.
+6. In Railway Networking, generate a public Railway domain. HTTPS is provided at the Railway edge. Test `/api/health`, the public status form, and owner login before sharing the domain. You can optionally set `SITE_ORIGIN=https://your-generated-domain.up.railway.app` to restrict write requests to that exact origin.
+7. Keep the service at **one replica** with this SQLite database, and back up `/data/guc.db`. Attach the volume *before first production use*.
+
+The `railway.json` file supplies the start command and healthcheck. `scripts/bootstrap.mjs` initializes the owner only if the account doesn't exist; it never resets an established owner password on subsequent deployments.

@@ -1,0 +1,16 @@
+{
+  "name": "galactic-unification-corps-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Standalone public GUC website with owner-only admin and no-account status board.",
+  "engines": {
+    "node": ">=22.16.0"
+  },
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "start": "node scripts/bootstrap.mjs && node server.mjs",
+    "dev": "node server.mjs",
+    "test": "node --test tests/*.test.mjs"
+  }
+}
