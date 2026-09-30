@@ -106,7 +106,7 @@ function routeApi(req,res,path){return (async()=>{
    if(!(cm[1] in PAGE_COPY))return failure(res,404,'Content field not found.');
    const b=await body(req),value=plain(b.value||'',8000);db.prepare('INSERT INTO site_content(key,value) VALUES (?,?) ON CONFLICT(key) DO UPDATE SET value=excluded.value').run(cm[1],value);return json(res,200,{ok:true});
   }
-  const rm=path.match(/^\/api\/admin\/(high_command|units|ranks|events|announcements|rewards|guild_tiers|allies|statuses)(?:\/(\d+))?$/);
+  const rm=path.match(/^\/api\/admin\/(high_command|units|ranks|events|announcements|rewards|discord_roles|discord_channels|certifications|allies|statuses)(?:\/(\d+))?$/);
   if(rm){const [,collection,idText]=rm,id=idText?Number(idText):null;
    if(collection==='statuses'&&id&&method==='DELETE'){db.prepare('DELETE FROM statuses WHERE id=?').run(id);return json(res,200,{ok:true});}
    if(collection==='statuses'&&id&&method==='PUT'){const v=cleanStatus(await body(req));const r=db.prepare('SELECT id FROM statuses WHERE id=?').get(id);if(!r)return failure(res,404,'Entry not found.');updateStatus(id,v);return json(res,200,{ok:true});}
