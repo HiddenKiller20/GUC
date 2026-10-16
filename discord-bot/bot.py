@@ -331,12 +331,13 @@ async def create_role(i: discord.Interaction, key: str):
 async def menu(i: discord.Interaction):
     embed=discord.Embed(title='GUC Command Center',color=0x2459a6,
         description='Type / and select a command. Discord shows the member, role, and channel pickers for you.')
+    embed.add_field(name='Rank registration',value='/rank_register • /rank_requests • /rank_confirm • /rank_deny',inline=False)
     embed.add_field(name='Members',value='/enlist • /apply • /application_status • /profile • /catalog • /ticket',inline=False)
     embed.add_field(name='Staff — personnel & events',value='/assign • /revoke • /applications • /review • /announce • /audit_log',inline=False)
     embed.add_field(name='Staff — moderation',value='/warn • /timeout • /untimeout • /kick • /ban • /ticket_close',inline=False)
     embed.add_field(name='Owner — configuration',value='/setup • /bind • /create_role',inline=False)
     embed.add_field(name='Ranks, certs, attendance & rules',value='/structure • /rankup • /rank_queue • /cert_lookup • /cert_grant • /cert_revoke • /attendance • /attendance_export • /rules',inline=False)
-    embed.add_field(name='Owner setup additions',value='/rank_register • /personnel_set • /attendance_setup • /rules_set',inline=False)
+    embed.add_field(name='Owner setup additions',value='/rank_registration_setup • /personnel_set • /attendance_setup • /rules_set',inline=False)
     embed.add_field(name='Promotion approvals & marks',value='/promotion_approve • /promotion_status • /promotion_execute • /promotion_deny • /rank_status • /mark_award • /mark_revoke',inline=False)
     embed.add_field(name='Events & member status',value='/startcombat • /stopcombat • /startonduty • /stoponduty • /attendance_active • /attendance_void • /status create • /status show • /member_status',inline=False)
     embed.add_field(name='Strikes & handbook',value='/strike add • /strike remove • /strike list • /handbook',inline=False)
@@ -581,6 +582,8 @@ async def rules_set(i: discord.Interaction,text: app_commands.Range[str,10,3800]
 import sys
 from governance import install as install_governance
 install_governance(sys.modules[__name__])
+from rank_registration import install as install_rank_registration
+install_rank_registration(sys.modules[__name__])
 from event_status import install as install_event_status
 install_event_status(sys.modules[__name__])
 from manual_attendance import install as install_manual_attendance

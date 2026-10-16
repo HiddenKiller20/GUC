@@ -33,7 +33,7 @@ def install(b):
         if not b.owner(i):raise ValueError('Only the Emperor / Discord server owner can do this.')
     def record(uid,faction):
         row=db.execute('SELECT rank_code,rank_since,service_since,adult,commander FROM personnel WHERE user_id=? AND faction=?',(uid,faction)).fetchone()
-        if not row:raise ValueError('Owner must run /rank_register for this member first.')
+        if not row:raise ValueError('Use /rank_register or /enlist and obtain Server Manager confirmation first.')
         return row
     def current_keys(member,faction):
         owned={r.id for r in member.roles}

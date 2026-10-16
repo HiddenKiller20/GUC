@@ -132,3 +132,11 @@ Order: **Commander → Marshal Commander → High Commander** in both eras. Link
 ## Railway deployment files
 
 A Dockerfile is included. Configure Railway with root directory /discord-bot, start command python bot.py, one replica, zero deployment overlap, and service sleep disabled. The deprecated railway.json format is not used. Attach a persistent volume at `/data` and set `DATA_DIR=/data`. Add `DISCORD_TOKEN` securely in Railway Variables, plus your `DISCORD_GUILD_ID` (Discord server ID, not Application ID). No HTTP domain or inbound port is needed. Missing Discord variables cause startup to stop with a clear error. Railway service sleep is disabled; one replica and zero deployment overlap are configured. Do not run a second copy of the bot locally while hosting it.
+
+
+### Rank registration approval
+Everyone can use `/rank_register` to submit their existing linked faction rank and service dates (YYYY-MM-DD). New members use `/enlist` to request Recruit. Neither activates a record before confirmation. Existing registered members continue through the promotion workflow.
+
+The owner can run `/rank_registration_setup manager:@Server Manager` to select the reviewer role. If unset, a single role named exactly Server Manager is recognized automatically. Managers use `/rank_requests`, `/rank_confirm request_id:123 reason:Verified`, or `/rank_deny`. Self-approval is blocked. Recruit grants require the existing safe-role and role-hierarchy checks.
+
+Attendance start/stop commands are available before rank registration; each completed session earns one mark.
