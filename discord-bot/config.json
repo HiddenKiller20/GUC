@@ -1,0 +1,479 @@
+{
+  "staff_role_ids": [],
+  "welcome_channel_id": "",
+  "roles": {
+    "rep_501": {
+      "name": "501st Legion",
+      "kind": "battalion",
+      "faction": "Republic"
+    },
+    "rep_41": {
+      "name": "41st Elite Corps",
+      "kind": "battalion",
+      "faction": "Republic"
+    },
+    "rep_104": {
+      "name": "104th Battalion",
+      "kind": "battalion",
+      "faction": "Republic"
+    },
+    "rep_cg": {
+      "name": "Coruscant Guard",
+      "kind": "battalion",
+      "faction": "Republic"
+    },
+    "rep_grey": {
+      "name": "Grey Battalion",
+      "kind": "battalion",
+      "faction": "Republic"
+    },
+    "rep_404": {
+      "name": "404th Misfit Battalion",
+      "kind": "battalion",
+      "faction": "Republic"
+    },
+    "rep_73": {
+      "name": "73rd Shadow Battalion",
+      "kind": "battalion",
+      "faction": "Republic"
+    },
+    "cert_basic": {
+      "name": "CERT | Basic Combat Training",
+      "kind": "cert",
+      "faction": "Shared"
+    },
+    "cert_rifle": {
+      "name": "CERT | Rifle Qualification",
+      "kind": "cert",
+      "faction": "Shared"
+    },
+    "cert_heavy": {
+      "name": "CERT | Heavy Weapons",
+      "kind": "cert",
+      "faction": "Shared"
+    },
+    "cert_medic": {
+      "name": "CERT | Combat Medic",
+      "kind": "cert",
+      "faction": "Shared"
+    },
+    "cert_pilot": {
+      "name": "CERT | Pilot",
+      "kind": "cert",
+      "faction": "Shared"
+    },
+    "cert_vehicle": {
+      "name": "CERT | Vehicle Operator",
+      "kind": "cert",
+      "faction": "Shared"
+    },
+    "cert_sniper": {
+      "name": "CERT | Marksman / Sniper",
+      "kind": "cert",
+      "faction": "Shared"
+    },
+    "cert_engineer": {
+      "name": "CERT | Combat Engineer",
+      "kind": "cert",
+      "faction": "Shared"
+    },
+    "cert_lead": {
+      "name": "CERT | Leadership",
+      "kind": "cert",
+      "faction": "Shared"
+    },
+    "cert_instructor": {
+      "name": "CERT | Instructor",
+      "kind": "cert",
+      "faction": "Shared"
+    },
+    "cert_security": {
+      "name": "CERT | Security Procedures",
+      "kind": "cert",
+      "faction": "Shared"
+    },
+    "cert_jet": {
+      "name": "CERT | Jetpack Qualification",
+      "kind": "cert",
+      "faction": "Shared"
+    },
+    "rep_recruit": {
+      "name": "Republic | Recruit",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_pvt": {
+      "name": "Republic | Private",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_psc": {
+      "name": "Republic | Private Second Class",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_pfc": {
+      "name": "Republic | Private First Class",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_spc": {
+      "name": "Republic | Specialist",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_cpl": {
+      "name": "Republic | Corporal",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_sgt": {
+      "name": "Republic | Sergeant",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_ssg": {
+      "name": "Republic | Staff Sergeant",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_sfc": {
+      "name": "Republic | Sergeant First Class",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_msg": {
+      "name": "Republic | Master Sergeant",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_1sg": {
+      "name": "Republic | First Sergeant",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_sgm": {
+      "name": "Republic | Sergeant Major",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_csm": {
+      "name": "Republic | Command Sergeant Major",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_sme": {
+      "name": "Republic | Sergeant Major of the Era",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_wo": {
+      "name": "Republic | Warrant Officer",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_cwo": {
+      "name": "Republic | Chief Warrant Officer",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_hwo": {
+      "name": "Republic | High Warrant Officer",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_cmwo": {
+      "name": "Republic | Command Warrant Officer",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_cgwo": {
+      "name": "Republic | Commanding Warrant Officer",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_2lt": {
+      "name": "Republic | Second Lieutenant",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_1lt": {
+      "name": "Republic | First Lieutenant",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_cpt": {
+      "name": "Republic | Captain",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_maj": {
+      "name": "Republic | Major",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_ltcol": {
+      "name": "Republic | Lieutenant Colonel",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_col": {
+      "name": "Republic | Colonel",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_bg": {
+      "name": "Republic | Brigadier General",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_ltg": {
+      "name": "Republic | Lieutenant General",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_gen": {
+      "name": "Republic | General",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_cmdr": {
+      "name": "Republic | Commander",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "rep_hc": {
+      "name": "Republic | High Commander",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "emp_recruit": {
+      "name": "Empire | Recruit",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_pvt": {
+      "name": "Empire | Private",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_psc": {
+      "name": "Empire | Private Second Class",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_pfc": {
+      "name": "Empire | Private First Class",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_spc": {
+      "name": "Empire | Specialist",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_cpl": {
+      "name": "Empire | Corporal",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_sgt": {
+      "name": "Empire | Sergeant",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_ssg": {
+      "name": "Empire | Staff Sergeant",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_sfc": {
+      "name": "Empire | Sergeant First Class",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_msg": {
+      "name": "Empire | Master Sergeant",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_1sg": {
+      "name": "Empire | First Sergeant",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_sgm": {
+      "name": "Empire | Sergeant Major",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_csm": {
+      "name": "Empire | Command Sergeant Major",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_sme": {
+      "name": "Empire | Sergeant Major of the Era",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_wo": {
+      "name": "Empire | Warrant Officer",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_cwo": {
+      "name": "Empire | Chief Warrant Officer",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_hwo": {
+      "name": "Empire | High Warrant Officer",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_cmwo": {
+      "name": "Empire | Command Warrant Officer",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_cgwo": {
+      "name": "Empire | Commanding Warrant Officer",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_2lt": {
+      "name": "Empire | Second Lieutenant",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_1lt": {
+      "name": "Empire | First Lieutenant",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_cpt": {
+      "name": "Empire | Captain",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_maj": {
+      "name": "Empire | Major",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_ltcol": {
+      "name": "Empire | Lieutenant Colonel",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_col": {
+      "name": "Empire | Colonel",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_bg": {
+      "name": "Empire | Brigadier General",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_ltg": {
+      "name": "Empire | Lieutenant General",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_gen": {
+      "name": "Empire | General",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_cmdr": {
+      "name": "Empire | Commander",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "emp_hc": {
+      "name": "Empire | High Commander",
+      "kind": "rank",
+      "faction": "Empire"
+    },
+    "rep_mc": {
+      "name": "Republic | Marshal Commander",
+      "kind": "rank",
+      "faction": "Republic"
+    },
+    "emp_mc": {
+      "name": "Empire | Marshal Commander",
+      "kind": "rank",
+      "faction": "Empire"
+    }
+  },
+  "rank_ladders": {
+    "Republic": [
+      "rep_recruit",
+      "rep_pvt",
+      "rep_psc",
+      "rep_pfc",
+      "rep_spc",
+      "rep_cpl",
+      "rep_sgt",
+      "rep_ssg",
+      "rep_sfc",
+      "rep_msg",
+      "rep_1sg",
+      "rep_sgm",
+      "rep_csm",
+      "rep_sme",
+      "rep_wo",
+      "rep_cwo",
+      "rep_hwo",
+      "rep_cmwo",
+      "rep_cgwo",
+      "rep_2lt",
+      "rep_1lt",
+      "rep_cpt",
+      "rep_maj",
+      "rep_ltcol",
+      "rep_col",
+      "rep_bg",
+      "rep_ltg",
+      "rep_gen",
+      "rep_cmdr",
+      "rep_mc",
+      "rep_hc"
+    ],
+    "Empire": [
+      "emp_recruit",
+      "emp_pvt",
+      "emp_psc",
+      "emp_pfc",
+      "emp_spc",
+      "emp_cpl",
+      "emp_sgt",
+      "emp_ssg",
+      "emp_sfc",
+      "emp_msg",
+      "emp_1sg",
+      "emp_sgm",
+      "emp_csm",
+      "emp_sme",
+      "emp_wo",
+      "emp_cwo",
+      "emp_hwo",
+      "emp_cmwo",
+      "emp_cgwo",
+      "emp_2lt",
+      "emp_1lt",
+      "emp_cpt",
+      "emp_maj",
+      "emp_ltcol",
+      "emp_col",
+      "emp_bg",
+      "emp_ltg",
+      "emp_gen",
+      "emp_cmdr",
+      "emp_mc",
+      "emp_hc"
+    ]
+  }
+}
