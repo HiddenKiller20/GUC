@@ -47,8 +47,7 @@ def install(b):
 
     async def start_session(i,faction,kind):
         if i.user.bot:raise ValueError('Bot accounts cannot log attendance.')
-        if not db.execute('SELECT 1 FROM personnel WHERE user_id=? AND faction=?',(i.user.id,faction)).fetchone():
-            raise ValueError('Ask the owner to register your rank for this faction first.')
+        # Every human server member may log their own attendance, even before rank registration.
         async with b.lock:
             now=time.time();sid=store.start(i.user.id,faction,kind,now)
             b.audit(i.user.id,i.user.id,'attendance_start',f'#{sid} {faction} {kind}')
