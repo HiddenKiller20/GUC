@@ -140,3 +140,5 @@ Everyone can use `/rank_register` to submit their existing linked faction rank a
 The owner can run `/rank_registration_setup manager:@Server Manager` to select the reviewer role. If unset, a single role named exactly Server Manager is recognized automatically. Managers use `/rank_requests`, `/rank_confirm request_id:123 reason:Verified`, or `/rank_deny`. Self-approval is blocked. Recruit grants require the existing safe-role and role-hierarchy checks.
 
 Attendance start/stop commands are available before rank registration; each completed session earns one mark.
+
+Use `/attendance_logs` to view your sessions in Discord. Optional `days` (1–365) and `page` select the period and older entries, five per page. Staff can select `member` to view another member. `/attendance` still downloads CSV logs.

@@ -125,3 +125,24 @@ def install(b):
     @b.bot.tree.command(description='Staff: export all command-based attendance logs')
     async def attendance_export(i:discord.Interaction,days:app_commands.Range[int,1,365]=30):
         b.staff(i);await report(i,None,days)
+
+    @b.bot.tree.command(description='View attendance start/stop logs in Discord; staff may select another member')
+    async def attendance_logs(i:discord.Interaction,member:discord.Member|None=None,days:app_commands.Range[int,1,365]=30,page:app_commands.Range[int,1,10000]=1):
+        member=member or i.user
+        if member.id!=i.user.id:b.staff(i)
+        now=time.time();cutoff=now-days*86400
+        where='user_id=? AND COALESCE(end,?)>=?'
+        args=(member.id,now,cutoff)
+        count=db.execute('SELECT COUNT(*) FROM manual_attendance WHERE '+where,args).fetchone()[0]
+        pages=max(1,(count+4)//5)
+        if page>pages:raise ValueError(f'Choose a page between 1 and {pages}.')
+        rows=db.execute('SELECT id,faction,kind,start,end,status FROM manual_attendance WHERE '+where+' ORDER BY id DESC LIMIT 5 OFFSET ?',(*args,(page-1)*5)).fetchall()
+        embed=discord.Embed(title='Attendance logs',description=f'Member: <@{member.id}> • Last {days} days\n{count} sessions overlapping this period.',color=0x2459a6)
+        for sid,faction,kind,start,end,status in rows:
+            mark=db.execute('SELECT 1 FROM marks WHERE user_id=? AND faction=? AND event=?',(member.id,faction,f'attendance-{sid}')).fetchone()
+            stop=f'<t:{int(end)}:F>' if end is not None else ('Still active' if status=='active' else 'Not recorded')
+            duration=f'{max(0,(end if end is not None else now)-start)/60:.1f} minutes' if status!='void' else 'Voided'
+            embed.add_field(name=f'#{sid} • {faction} • {"Combat" if kind=="combat" else "On-Duty"} • {status}',value=f'Start: <t:{int(start)}:F>\nStop: {stop}\nDuration: {duration}\nMarks: {1 if mark else 0}',inline=False)
+        if not rows:embed.add_field(name='No attendance found',value='Use /startcombat or /startonduty to begin.',inline=False)
+        embed.set_footer(text=f'Page {page}/{pages} • Use page to see older entries. /attendance downloads a CSV.')
+        await i.response.send_message(embed=embed,ephemeral=True)
