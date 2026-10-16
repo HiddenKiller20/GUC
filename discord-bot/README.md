@@ -142,3 +142,5 @@ The owner can run `/rank_registration_setup manager:@Server Manager` to select t
 Attendance start/stop commands are available before rank registration; each completed session earns one mark.
 
 Use `/attendance_logs` to view your sessions in Discord. Optional `days` (1–365) and `page` select the period and older entries, five per page. Staff can select `member` to view another member. `/attendance` still downloads CSV logs.
+
+Staff can use `/attendance_roster` to see multiple members together. Filter by `days`, `faction`, `kind`, or `active_only`, and use `page` for older sessions. Each entry identifies the member, timestamps, duration, status and mark.

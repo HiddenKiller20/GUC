@@ -41,7 +41,7 @@ class Guards(unittest.TestCase):
         bot.check_role(self.i,Role(5,10))
     def test_all_command_payloads(self):
         commands=bot.bot.tree.get_commands()
-        self.assertEqual(len(commands),58)
+        self.assertEqual(len(commands),59)
         for command in commands: self.assertIsInstance(command.to_dict(bot.bot.tree),dict)
 
 if __name__=='__main__':unittest.main()

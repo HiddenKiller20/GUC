@@ -146,3 +146,26 @@ def install(b):
         if not rows:embed.add_field(name='No attendance found',value='Use /startcombat or /startonduty to begin.',inline=False)
         embed.set_footer(text=f'Page {page}/{pages} • Use page to see older entries. /attendance downloads a CSV.')
         await i.response.send_message(embed=embed,ephemeral=True)
+
+    @b.bot.tree.command(description='Staff: view attendance logs for multiple members together')
+    @app_commands.choices(faction=b.FACTIONS,kind=kinds)
+    async def attendance_roster(i:discord.Interaction,days:app_commands.Range[int,1,365]=30,page:app_commands.Range[int,1,10000]=1,faction:str|None=None,kind:str|None=None,active_only:bool=False):
+        b.staff(i)
+        now=time.time()
+        where='COALESCE(end,?)>=?';args=[now,now-days*86400]
+        if faction is not None:where+=' AND faction=?';args.append(faction)
+        if kind is not None:where+=' AND kind=?';args.append(kind)
+        if active_only:where+=" AND status='active'"
+        count,members=db.execute('SELECT COUNT(*),COUNT(DISTINCT user_id) FROM manual_attendance WHERE '+where,args).fetchone()
+        pages=max(1,(count+4)//5)
+        if page>pages:raise ValueError(f'Choose a page between 1 and {pages}.')
+        rows=db.execute('SELECT id,user_id,faction,kind,start,end,status FROM manual_attendance WHERE '+where+' ORDER BY id DESC LIMIT 5 OFFSET ?',[*args,(page-1)*5]).fetchall()
+        embed=discord.Embed(title='Attendance roster',description=f'{members} members • {count} sessions • Last {days} days\nFaction: {faction or "All"} • Type: {kind or "All"} • {"Active only" if active_only else "All statuses"}',color=0x2459a6)
+        for sid,uid,era,session_kind,start,end,status in rows:
+            mark=db.execute('SELECT 1 FROM marks WHERE user_id=? AND faction=? AND event=?',(uid,era,f'attendance-{sid}')).fetchone()
+            stop=f'<t:{int(end)}:F>' if end is not None else ('Still active' if status=='active' else 'Not recorded')
+            duration=f'{max(0,(end if end is not None else now)-start)/60:.1f} minutes' if status!='void' else 'Voided'
+            embed.add_field(name=f'#{sid} • {era} • {"Combat" if session_kind=="combat" else "On-Duty"} • {status}',value=f'Member: <@{uid}>\nStart: <t:{int(start)}:F>\nStop: {stop}\nDuration: {duration} • Marks: {1 if mark else 0}',inline=False)
+        if not rows:embed.add_field(name='No attendance found',value='No sessions match these filters.',inline=False)
+        embed.set_footer(text=f'Page {page}/{pages} • Five sessions per page • /attendance_export downloads all logs.')
+        await i.response.send_message(embed=embed,ephemeral=True)
