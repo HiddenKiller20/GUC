@@ -144,3 +144,5 @@ Attendance start/stop commands are available before rank registration; each comp
 Use `/attendance_logs` to view your sessions in Discord. Optional `days` (1–365) and `page` select the period and older entries, five per page. Staff can select `member` to view another member. `/attendance` still downloads CSV logs.
 
 Staff can use `/attendance_roster` to see multiple members together. Filter by `days`, `faction`, `kind`, or `active_only`, and use `page` for older sessions. Each entry identifies the member, timestamps, duration, status and mark.
+
+Members use `/role_request key:rep_501 reason:...` and `/role_request_status`. Server Managers use `/role_requests`, `/role_approve`, and `/role_deny`. Only linked, safe non-rank catalog roles can be requested; certification approvals update certification records. Battalion approvals replace the existing battalion in the same faction. Self-approval and rank-workflow bypasses are blocked. The reviewer role uses `/rank_registration_setup`.

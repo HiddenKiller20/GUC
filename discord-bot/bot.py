@@ -584,6 +584,8 @@ from governance import install as install_governance
 install_governance(sys.modules[__name__])
 from rank_registration import install as install_rank_registration
 install_rank_registration(sys.modules[__name__])
+from role_requests import install as install_role_requests
+install_role_requests(sys.modules[__name__])
 from event_status import install as install_event_status
 install_event_status(sys.modules[__name__])
 from manual_attendance import install as install_manual_attendance

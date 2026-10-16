@@ -33,6 +33,7 @@ def install(b):
         if role.id not in {r.id for r in member.roles}:
             raise ValueError('Only members with the Server Manager role can review registrations.')
         return member
+    b.registration_reviewer=reviewer
     def parse(value):
         try:stamp=datetime.strptime(value,'%Y-%m-%d').replace(tzinfo=timezone.utc).timestamp()
         except ValueError:raise ValueError('Use YYYY-MM-DD dates in UTC.')
