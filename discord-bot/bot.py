@@ -596,6 +596,9 @@ install_manual_attendance(sys.modules[__name__])
 from strikes import install as install_strikes
 install_strikes(sys.modules[__name__])
 
+from announcements import install as install_announcements
+install_announcements(sys.modules[__name__])
+
 from attendance_rankups import install as install_attendance_rankups
 install_attendance_rankups(sys.modules[__name__])
 
