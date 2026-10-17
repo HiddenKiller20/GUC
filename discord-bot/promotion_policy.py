@@ -42,12 +42,12 @@ def requirements(current,target,rank_since,service_since,marks,adult,now,jump=Fa
     errors=[]
     if CODES.index(target)!=CODES.index(current)+1:errors.append('Promotion must advance exactly one rank.')
     tier=BY_CODE[target][2]
-    days=3 if jump else (wait_days or WAIT_DAYS)[tier]
+    days=0 if tier=='enlisted' else (3 if jump else (wait_days or WAIT_DAYS)[tier])
     due=rank_since+days*DAY
     if now<due:errors.append(f'Wait until Unix time {int(due)} ({days} days in current rank).')
     needed=BY_CODE[target][3]
     if needed is not None and marks<needed:
-        if not(target=='pvt' and now-service_since>=2*DAY):errors.append(f'Requires {needed} cumulative attendance marks; has {marks}.')
+        errors.append(f'Requires {needed} cumulative attendance marks; has {marks}.')
     if tier=='high' and not adult:errors.append('Owner must verify 18+ eligibility for High Command.')
     return errors
 

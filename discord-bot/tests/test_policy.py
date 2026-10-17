@@ -5,12 +5,12 @@ from manual_attendance import SessionStore
 
 class Policy(unittest.TestCase):
     def test_private_alternate_tenure_and_marks(self):
-        self.assertEqual(requirements('recruit','pvt',0,0,0,False,2*DAY),[])
+        self.assertTrue(requirements('recruit','pvt',0,0,0,False,2*DAY))
         self.assertEqual(requirements('recruit','pvt',0,0,5,False,DAY),[])
         self.assertTrue(requirements('recruit','pvt',0,0,4,False,DAY))
     def test_threshold_and_jump_wait(self):
         self.assertTrue(requirements('pvt','psc',0,0,9,False,10*DAY))
-        self.assertTrue(requirements('pvt','psc',0,0,35,False,2*DAY,True))
+        self.assertEqual(requirements('pvt','psc',0,0,35,False,0,True),[])
         self.assertEqual(requirements('pvt','psc',0,0,35,False,3*DAY,True),[])
     def test_marshal_commander_directly_below_high_commander(self):
         from promotion_policy import CODES

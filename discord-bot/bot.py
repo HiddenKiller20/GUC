@@ -569,7 +569,10 @@ async def rules(i: discord.Interaction):
     body=CONFIG.get('published_rules')
     if not body:
         await i.response.send_message('Official rules have not been published in this bot yet. Ask the owner to use /rules_set.',ephemeral=True)
-    else:await i.response.send_message(embed=discord.Embed(title='GUC Rules',description=body,color=0x2459a6),ephemeral=True)
+    else:
+        embed=discord.Embed(title='GUC Rules',description=body,color=0x2459a6)
+        embed.add_field(name='Attendance promotion update — overrides earlier enlisted timing rules',value='Confirmed members auto-promote each minute by faction attendance marks only: Private 5, Private Second Class 10, PFC 15, Specialist 20, Corporal 25, Sergeant 30, Staff Sergeant 35. No enlisted wait or tenure alternative; no automatic promotion above Staff Sergeant.',inline=False)
+        await i.response.send_message(embed=embed,ephemeral=True)
 
 @bot.tree.command(description='Owner: publish or replace the official rules shown by /rules')
 async def rules_set(i: discord.Interaction,text: app_commands.Range[str,10,3800]):
@@ -592,6 +595,9 @@ from manual_attendance import install as install_manual_attendance
 install_manual_attendance(sys.modules[__name__])
 from strikes import install as install_strikes
 install_strikes(sys.modules[__name__])
+
+from attendance_rankups import install as install_attendance_rankups
+install_attendance_rankups(sys.modules[__name__])
 
 if __name__ == '__main__':
     token = os.getenv('DISCORD_TOKEN')
