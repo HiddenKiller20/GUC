@@ -605,6 +605,9 @@ install_attendance_rankups(sys.modules[__name__])
 from external_bot_moderation import install as install_external_bot_moderation
 install_external_bot_moderation(sys.modules[__name__])
 
+from join_guard import install as install_join_guard
+install_join_guard(sys.modules[__name__])
+
 if __name__ == '__main__':
     token = os.getenv('DISCORD_TOKEN')
     if not token or not GUILD_ID:
