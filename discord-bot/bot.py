@@ -608,6 +608,9 @@ install_external_bot_moderation(sys.modules[__name__])
 from join_guard import install as install_join_guard
 install_join_guard(sys.modules[__name__])
 
+from external_activity_logs import install as install_external_activity_logs
+install_external_activity_logs(sys.modules[__name__])
+
 if __name__ == '__main__':
     token = os.getenv('DISCORD_TOKEN')
     if not token or not GUILD_ID:
