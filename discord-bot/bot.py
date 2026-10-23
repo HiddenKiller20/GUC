@@ -334,7 +334,7 @@ async def menu(i: discord.Interaction):
     embed.add_field(name='Rank registration',value='/rank_register • /rank_requests • /rank_confirm • /rank_deny',inline=False)
     embed.add_field(name='Members',value='/enlist • /apply • /application_status • /profile • /catalog • /ticket',inline=False)
     embed.add_field(name='Staff — personnel & events',value='/assign • /revoke • /applications • /review • /announce • /audit_log',inline=False)
-    embed.add_field(name='Staff — moderation',value='/warn • /timeout • /untimeout • /kick • /ban • /ticket_close',inline=False)
+    embed.add_field(name='Staff — moderation',value='/warn • /timeout • /untimeout • /kick • /ban • /ban_external_bot • /ticket_close',inline=False)
     embed.add_field(name='Owner — configuration',value='/setup • /bind • /create_role',inline=False)
     embed.add_field(name='Ranks, certs, attendance & rules',value='/structure • /rankup • /rank_queue • /cert_lookup • /cert_grant • /cert_revoke • /attendance • /attendance_export • /rules',inline=False)
     embed.add_field(name='Owner setup additions',value='/rank_registration_setup • /personnel_set • /attendance_setup • /rules_set',inline=False)
@@ -601,6 +601,9 @@ install_announcements(sys.modules[__name__])
 
 from attendance_rankups import install as install_attendance_rankups
 install_attendance_rankups(sys.modules[__name__])
+
+from external_bot_moderation import install as install_external_bot_moderation
+install_external_bot_moderation(sys.modules[__name__])
 
 if __name__ == '__main__':
     token = os.getenv('DISCORD_TOKEN')
